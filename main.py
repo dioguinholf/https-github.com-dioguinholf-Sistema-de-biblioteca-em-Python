@@ -20,6 +20,14 @@ MENU = f"""
 ==========================================="""
 
 
+def ler_inteiro(mensagem: str, campo: str) -> int:
+    """Lê um número inteiro do teclado com mensagem de erro clara."""
+    try:
+        return int(input(mensagem))
+    except ValueError:
+        raise ValueError(f"{campo} deve ser um número inteiro.")
+
+
 def exibir(itens, vazio="Nenhum registro encontrado.") -> None:
     if not itens:
         print(vazio)
@@ -31,7 +39,7 @@ def cadastrar_livro(livros: GerenciadorLivros) -> None:
     isbn = input("ISBN: ")
     titulo = input("Título: ")
     autor = input("Autor: ")
-    ano = int(input("Ano: "))
+    ano = ler_inteiro("Ano: ", "O ano")
     livro = livros.adicionar(isbn, titulo, autor, ano)
     print("Livro cadastrado:", livro)
 
@@ -80,7 +88,7 @@ def main() -> None:
             elif opcao == "6":
                 exibir(usuarios.listar(), "Nenhum usuário cadastrado.")
             elif opcao == "7":
-                ok = usuarios.remover(int(input("ID do usuário: ")))
+                ok = usuarios.remover(ler_inteiro("ID do usuário: ", "O ID"))
                 print("Usuário removido." if ok else "Usuário não encontrado.")
             elif opcao == "0":
                 print("Até logo!")
