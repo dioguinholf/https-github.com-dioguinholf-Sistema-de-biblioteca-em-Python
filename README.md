@@ -42,6 +42,7 @@ O projeto segue o [Versionamento Semântico](https://semver.org/lang/pt-BR/) (`M
 | Versão | Descrição |
 |--------|-----------|
 | v1.0.0 | Módulos de livros e usuários integrados |
+| v1.1.0 | Validação do ano de publicação (não aceita anos futuros) |
 
 ## Integrantes
 | Nome | GitHub |

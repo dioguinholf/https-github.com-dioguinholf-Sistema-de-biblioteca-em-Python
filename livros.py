@@ -1,6 +1,7 @@
 """Módulo de gerenciamento e consulta de livros."""
 
 from dataclasses import dataclass
+from datetime import date
 from typing import List, Optional
 
 
@@ -28,7 +29,7 @@ class GerenciadorLivros:
             raise ValueError("ISBN, título e autor são obrigatórios.")
         if self.buscar_por_isbn(isbn):
             raise ValueError(f"Já existe um livro com o ISBN {isbn}.")
-        if ano <= 0:
+        if ano <= 0 or ano > date.today().year:
             raise ValueError("Ano de publicação inválido.")
 
         livro = Livro(isbn, titulo, autor, ano)

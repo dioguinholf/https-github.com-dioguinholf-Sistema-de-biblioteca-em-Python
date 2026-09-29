@@ -3,7 +3,7 @@
 from livros import GerenciadorLivros
 from usuarios import GerenciadorUsuarios
 
-VERSAO = "1.0.0"
+VERSAO = "1.1.0"
 
 MENU = f"""
 ===== SISTEMA DE BIBLIOTECA v{VERSAO} =====
